@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+}
+
+.links, .links-2 {
+    display: flex;
+}
+
+.links-2 ul{
+    gap: 1rem;
+}
+
+.links-2 {
+    margin-left: auto;
+}
+
+.links ul, .links-2 ul{
+    list-style-type: none;
+    display: flex;
+}
+
+.item-group ul {
+    list-style-type: none;
+    position: relative;
+}
+.item-group-title {
+    font-size: 1em;
+}
+
+.item-group ul li {
+    position: absolute;
+    transform: translateY(-100vw);
+}
