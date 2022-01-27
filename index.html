@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="src/styles/style.css">
+  <link rel="stylesheet" href="src/styles/main.css">
+  <link rel="stylesheet" href="src/styles/header.css">
   <title>Frontend Mentor | [Blogr]</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -16,18 +17,16 @@
 </head>
 <body>
   <nav>
-    <div class="title">
+    <div id="title">
       Blogr
     </div>
-    <div class="links">
+    <div class="links-group links">
       <ul>
         <li class="item-group">
+          <h3 class="item-group-title">
+              Product
+          </h3>
           <ul>
-            <h3 class="item-group-title">
-              <a href="#">
-                Product
-              </a>
-            </h3>
             <li>
               <a href="#">Overview</a>
             </li>
@@ -46,8 +45,8 @@
           </ul>
         </li>
       <li class="item-group">
+        <h3 class="item-group-title">Company</h3>
         <ul>
-          <h3 class="item-group-title"><a href="#">Company</a></h3>
           <li><a href="#">About</a></li>
           <li><a href="#">Team</a></li>
           <li><a href="#">Blog</a></li>
@@ -55,22 +54,51 @@
         </ul>
       </li>
       <li class="item-group">
+        <h3 class="item-group-title">Connect</h3>
         <ul>
-          <h3 class="item-group-title"><a href="#">Connect</a></h3>
           <li><a href="#">Contact</a></li>
           <li><a href="#">Newsletter</a></li>
           <li><a href="#">LinkedIn</a></li>
         </ul>
+      
       </li>
       </ul>
     </div>
-    <div class="links-2">
+    <div class=" links-group links-2">
       <ul>
         <li><a href="#">Login</a></li>
         <li><a href="#">Sign Up</a></li>
       </ul>
     </div>
+  <script>
+    const titles = document.querySelectorAll('.item-group-title');
+    titles.forEach(title => {
+      title.addEventListener('click', () => {
+        title.classList.toggle('active');
+        title.parentElement.classList.toggle('active');
+        const others = document.querySelectorAll('.item-group-title');
+        others.forEach(other => {
+          if (other !== title) {
+            other.classList.remove('active');
+            other.parentElement.classList.remove('active');
+          }
+        });
+      });
+    });
+    // const showDropdown = (e) => {
+    //   const dropdown = e.target.nextElementSibling;
+    //   dropdown.classList.toggle('active');
+    // }
+  </script>
   </nav>
+  <section id="header">
+    <h2>A modern publishing platform</h2>
+    <p>Grow your audience and build your online brand</p>
+    <div id="button-group">
+      <a href="#" id="get-started">Start for Free</a>
+      <a href="#" id="learn-more">Learn More</a>
+    </div>
+  </section>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
