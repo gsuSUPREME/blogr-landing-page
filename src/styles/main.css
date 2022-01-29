@@ -44,6 +44,11 @@ a {
   text-decoration: none;
   color: black;
 }
+
+a:active {
+  font-weight: 700;
+}
+
 a:visited {
   color: black;
   text-decoration: none;
@@ -158,28 +163,71 @@ nav #menu {
     flex-direction: column;
   }
   nav .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 2rem;
-    width: 80vw;
+    width: 68vw;
     background-color: var(--white);
     opacity: 0;
     transform: translateY(-100vw);
     top: 18%;
     display: none;
     position: fixed;
-    left: calc(35 * 100vw / 1556);
+    border-radius: 10px;
+    left: calc(102 * 100vw / 1556);
+    box-shadow: hsl(0, 0%, 36%, 0.5) 0 10px 20px 5px;
   }
   nav .mobile-menu.active {
-    display: fixed;
+    display: block;
     opacity: 1;
     transform: translateY(0);
   }
   .links ul {
     flex-direction: column;
     padding-left: 0;
+    align-items: center;
     gap: 0.2rem;
   }
-  #signup {
+  .item-group {
+    flex-direction: column;
+    align-items: center;
+  }
+  .item-group.active ul{
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+    background-color: hsl(240, 2%, 95%);
+    box-shadow: none;
+    width: 200%;
+    gap: 1rem;
+    align-items: center;
+  }
+  .item-group.active ul li a{
+    text-align: center;
+  }
+  .links-2 {
+    justify-content: center;
+    border-top: 1px solid var(--grayish-blue);
+  }
+  .links-2 ul{
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+    gap: 2rem;
+  }
+
+  .links-2 ul li a{
+    text-align: center;
+    color: var(--very-dark-blue);
+    font-weight: 600;
+    }
+
+  #sign-up {
     background:  linear-gradient(100deg, rgba(255,143,112,1) 25%, rgba(255,61,84,1) 100%);
+  color: var(--white);
+    padding: 0.7rem 2rem;
   }
   .item-group-title{
     color: black;

@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="src/styles/sections.css" />
     <link rel="stylesheet" href="src/styles/footer.css" />
     <title>Frontend Mentor | [Blogr]</title>
-
   </head>
   <body>
     <nav id="nav">
@@ -25,7 +24,7 @@
       <div class="links-group links">
         <ul>
           <li class="item-group">
-            <h3 class="item-group-title">Product</h3>
+            <h3 class="item-group-title">Product  <span><img src="src/img/icon-arrow-dark.svg" alt="icon-arrow" class="arrow" /></span></h3>
             <ul>
               <li>
                 <a href="#">Overview</a>
@@ -45,7 +44,7 @@
             </ul>
           </li>
           <li class="item-group">
-            <h3 class="item-group-title">Company</h3>
+            <h3 class="item-group-title">Company <span><img src="src/img/icon-arrow-dark.svg" alt="icon-arrow" class="arrow" /></span> </h3>
             <ul>
               <li><a href="#">About</a></li>
               <li><a href="#">Team</a></li>
@@ -54,7 +53,7 @@
             </ul>
           </li>
           <li class="item-group">
-            <h3 class="item-group-title">Connect</h3>
+            <h3 class="item-group-title">Connect  <span><img src="src/img/icon-arrow-dark.svg" alt="icon-arrow" class="arrow" /></span></h3>
             <ul>
               <li><a href="#">Contact</a></li>
               <li><a href="#">Newsletter</a></li>
@@ -70,8 +69,7 @@
         </ul>
       </div>
       <img id="menu" src="src/img/icon-hamburger.svg" alt="menu" />
-      <script>
-      </script>
+      <script></script>
     </nav>
     <section id="header">
       <h2>A modern publishing platform</h2>
@@ -219,10 +217,8 @@
         });
       });
       const menu = document.getElementById("menu");
-      
-      
+
       menu.addEventListener("click", () => {
-        
         if (menu.classList.contains("active")) {
           menu.classList.remove("active");
           menu.src = "src/img/icon-hamburger.svg";
@@ -230,47 +226,74 @@
           menu.classList.add("active");
           menu.src = "src/img/icon-close.svg";
         }
-        document.getElementsByClassName("mobile-menu")[0].classList.toggle("active");
+        document
+          .getElementsByClassName("mobile-menu")[0]
+          .classList.toggle("active");
       });
       const img2 = document.getElementById("illustration-laptop");
       const links = document.querySelectorAll(".links-group");
       const nav = document.getElementById("nav");
-      parent.classList.add("mobile-menu");
-      window.addEventListener("load", () => {
-        
-        if (window.innerWidth > 768) {
-            img.src = "src/img/illustration-editor-desktop.svg";
-            img2.src = "src/img/illustration-laptop-desktop.svg";
-          } else {
-            if (!(document.getElementById("mobile-menu"))) {
-          const parent = document.createElement("div");
-          links.forEach((link) => {
-            parent.appendChild(link);
-          });
-          nav.appendChild(parent);
-        }
-            img.src = "src/img/illustration-editor-mobile.svg";
-            img2.src = "src/img/illustration-laptop-mobile.svg";
-          }
-      })
-
-
-      const img = document.getElementById("illustration-editor");
-        window.addEventListener("resize", () => {
-          if (window.innerWidth > 768) {
-            if(document.getElementById("mobile-menu")){
-              nav.appendChild(links);
-              document.getElementById("mobile-menu").remove();
-            }
-            img.src = "src/img/illustration-editor-desktop.svg";
-            img2.src = "src/img/illustration-laptop-desktop.svg";
-          } else {
-            
-            img.src = "src/img/illustration-editor-mobile.svg";
-            img2.src = "src/img/illustration-laptop-mobile.svg";
-          }
-        });
+      const arrow = document.createElement("span");
+      const arrows = document.querySelectorAll(".arrow");
       
+      window.addEventListener("load", () => {
+        if (window.innerWidth > 768) {
+          if (document.getElementById("mobile-menu")) {
+            nav.appendChild(links);
+            document.getElementById("mobile-menu").remove();
+          }
+          arrows.forEach((arrow) => {
+            "src/img/icon-arrow-light.svg"
+          });
+          
+          img.src = "src/img/illustration-editor-desktop.svg";
+          img2.src = "src/img/illustration-laptop-desktop.svg";
+        } else {
+          if (!document.getElementById("mobile-menu")) {
+            const parent = document.createElement("div");
+            parent.id = "mobile-menu";
+            parent.classList.add("mobile-menu");
+            links.forEach((link) => {
+              parent.appendChild(link);
+            });
+            nav.appendChild(parent);
+          }
+          arrows.forEach((arrow) => {
+            arrow.src = "src/img/icon-arrow-dark.svg";
+          });
+          img.src = "src/img/illustration-editor-mobile.svg";
+          img2.src = "src/img/illustration-laptop-mobile.svg";
+        }
+      });
+      const img = document.getElementById("illustration-editor");
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          if (document.getElementById("mobile-menu")) {
+            nav.appendChild(links);
+            document.getElementById("mobile-menu").remove();
+          }
+          arrows.forEach((arrow) => {
+            arrow.src = "src/img/icon-arrow-light.svg";
+          });
+          img.src = "src/img/illustration-editor-desktop.svg";
+          img2.src = "src/img/illustration-laptop-desktop.svg";
+        } else {
+          if (!(document.getElementById("mobile-menu"))) {
+            const parent = document.createElement("div");
+            parent.classList.add("mobile-menu");
+            parent.id = "mobile-menu";
+            links.forEach((link) => {
+              parent.appendChild(link);
+            });
+            nav.appendChild(parent);
+          }
+          arrows.forEach((arrow) => {
+            arrow.src = "src/img/icon-arrow-dark.svg";
+          });
+          img.src = "src/img/illustration-editor-mobile.svg";
+          img2.src = "src/img/illustration-laptop-mobile.svg";
+        }
+      });
     </script>
     <!-- <script>
       const inViewport = (entries, observer) => {
