@@ -1,66 +1,81 @@
 #header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    background: url(../img/bg-pattern-intro-desktop.svg), linear-gradient(100deg, rgba(255,143,112,1) 25%, rgba(255,61,84,1) 100%);
-    background-position: -20% 50%, center center;
-    background-size: 150%;
-    background-repeat: no-repeat;
-    padding: 8rem 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  background: url(../img/bg-pattern-intro-desktop.svg),
+    linear-gradient(
+      100deg,
+      rgba(255, 143, 112, 1) 25%,
+      rgba(255, 61, 84, 1) 100%
+    );
+  background-position: -20% 50%, center center;
+  background-size: 150%;
+  background-repeat: no-repeat;
+  padding: 8rem 8rem;
+  border-bottom-left-radius: 70px;
 }
 #header h2 {
-    margin: 0;
-    font-family: var(--primary-font);
-    font-weight: 600;
-    font-size: 3em;
+  margin: 0;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-size: 3em;
 }
 
 #header p {
-    font-family: var(--secondary-font);
-    font-weight: 400;
-    font-size: 1em;
-    margin-bottom: 2rem;
+  font-family: var(--secondary-font);
+  font-weight: 400;
+  font-size: 1em;
+  margin-bottom: 2rem;
 }
 
 #header #get-started {
-    font-family: var(--secondary-font);
-    font-weight: 700;
-    color: var(--light-red);
-    padding: 0.7rem;
-    border-radius: 50px;
-    background-color: var(--white);
-    transition: all 0.2s ease-in-out;
+  font-family: var(--secondary-font);
+  font-weight: 700;
+  color: var(--light-red);
+  padding: 0.7rem;
+  border-radius: 50px;
+  background-color: var(--white);
+  transition: all 0.2s ease-in-out;
 }
 
 #header #get-started:hover {
-    background-color: var(--very-light-red);
-    color: var(--white);
+  background-color: var(--very-light-red);
+  color: var(--white);
 }
 
-
 #header #learn-more {
-    font-family: var(--secondary-font);
-    font-weight: 700;
-    color: var(--white);
-    padding: 0.7rem 1rem;
-    border-radius: 50px;
-    border: var(--white) solid 1px;
-    transition: all 0.2s ease-in-out;
+  font-family: var(--secondary-font);
+  font-weight: 700;
+  color: var(--white);
+  padding: 0.7rem 1rem;
+  border-radius: 50px;
+  border: var(--white) solid 1px;
+  transition: all 0.2s ease-in-out;
 }
 
 #header #learn-more:hover {
-    background-color: var(--white);
-    color: var(--very-light-red);
+  background-color: var(--white);
+  color: var(--very-light-red);
 }
-
 
 #header #button-group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 
+@media (max-width: 768px) {
+  #header {
+    text-align: center;
+    padding: 15rem 0;
+    background-position: 30% 0%, center center;
+    background-size: 250%;
+  }
 
+  #header h2 {
+    font-size: 2em;
+  }
+}

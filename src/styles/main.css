@@ -1,103 +1,189 @@
-@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 
 :root {
-    --light-red: hsl(356,100%,66%);
-    --very-light-red: hsl(355, 100%, 74%);
-    --very-dark-blue: hsl(208, 49%, 24%);
-    --white: hsl(0, 0%, 100%);
-    --grayish-blue: hsl(240, 2%, 79%);
-    --very-dark-grayish-blue: hsl(207, 13%, 34%);
-    --dark-black-blue: hsl(240, 10%, 16%);
-    --primary-font: "Overpass", sans-serif;
-    --secondary-font: "Ubuntu", sans-serif
+  --light-red: hsl(356, 100%, 66%);
+  --very-light-red: hsl(355, 100%, 74%);
+  --very-dark-blue: hsl(208, 49%, 24%);
+  --white: hsl(0, 0%, 100%);
+  --grayish-blue: hsl(240, 2%, 79%);
+  --very-dark-grayish-blue: hsl(207, 13%, 34%);
+  --dark-black-blue: hsl(240, 10%, 16%);
+  --primary-font: "Overpass", sans-serif;
+  --secondary-font: "Ubuntu", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--very-dark-blue) var(--very-light-red);
+}
+/*
+  /* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--very-light-red);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--very-dark-blue);
+  border-radius: 10px;
+  border: 3px solid var(--very-light-red);
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
 }
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 a:visited {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
-
 
 nav {
-    width: 80vw;
-    display: flex;
-    align-items: center;
-    margin: 1rem 5rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: var(--white);
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  margin: 1rem 5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--white);
 }
 
-#title {
-    font-family: var(--primary-font);
-    font-weight: 600;
-    font-size: 2.5em;
+nav #menu {
+  display: none;
 }
 
 .links-group {
-    display: flex;
+  display: flex;
 }
 
-.links-2 ul{
-    gap: 1rem;
-}
-
-.links-2 {
-    margin-left: auto;
-}
-
-.links-group ul{
-    list-style-type: none;
-    display: flex;
-    gap: 1.3rem;
-    font-family: var(--secondary-font);
-    font-weight: 400;
+.links-group ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1.3rem;
+  font-family: var(--secondary-font);
+  font-weight: 400;
 }
 
 .item-group {
-    position: relative;
-    display: flex;
-}
-
-.item-group ul{
-    list-style-type: none;
-}
-.item-group-title {
-    font-weight: 400;
-    font-size: 1em;
-    color: var(--white);
-    cursor: pointer;    
-}
-.item-group-title.active {
-    text-decoration: underline;
+  position: relative;
+  display: flex;
 }
 
 .item-group ul {
-    position: absolute;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    padding: 1rem 1.5rem;
-    background-color: var(--white);
-    border-radius: 0.5rem;
-    box-shadow: #5757573a 0 10px 20px 5px;
-    left: -0;
-    top: 100vw;
-    display: flex;
-    flex-direction: column;
+  list-style-type: none;
+}
+.item-group-title {
+  font-weight: 400;
+  font-size: 1em;
+  color: var(--white);
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+.item-group-title.active {
+  text-decoration: underline;
+}
+
+.item-group ul {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  padding: 1rem 1.5rem;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  box-shadow: #5757573a 0 10px 20px 5px;
+  left: -0;
+  top: 100vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .item-group.active ul {
-    opacity: 1;
-    top: 100%;
+  opacity: 1;
+  top: 100%;
 }
+.links-2 ul {
+  gap: 1rem;
+}
+
+.links-2 ul li a {
+  color: var(--white);
+  cursor: pointer;
+}
+
+.links-2 {
+  margin-left: auto;
+}
+
+#sign-up {
+  font-family: var(--secondary-font);
+  font-weight: 700;
+  color: var(--light-red);
+  padding: 0.7rem;
+  border-radius: 50px;
+  background-color: var(--white);
+  transition: all 0.2s ease-in-out;
+}
+
+#sign-up:hover {
+  background-color: var(--very-light-red);
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  nav #menu {
+    display: block;
+  }
+  nav {
+    width: 85%;
+    margin-left: 2rem;
+    margin-top: 3rem;
+    justify-content: space-between;
+  }
+  nav .links {
+    flex-direction: column;
+  }
+  nav .mobile-menu {
+    padding: 2rem;
+    width: 80vw;
+    background-color: var(--white);
+    opacity: 0;
+    transform: translateY(-100vw);
+    top: 18%;
+    display: none;
+    position: fixed;
+    left: calc(35 * 100vw / 1556);
+  }
+  nav .mobile-menu.active {
+    display: fixed;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .links ul {
+    flex-direction: column;
+    padding-left: 0;
+    gap: 0.2rem;
+  }
+  #signup {
+    background:  linear-gradient(100deg, rgba(255,143,112,1) 25%, rgba(255,61,84,1) 100%);
+  }
+  .item-group-title{
+    color: black;
+  }
+
+}
+
